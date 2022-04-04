@@ -1,0 +1,54 @@
+{{#if message}}
+  <div class="alert alert-{{message.type}}" role="alert">
+    {{message.message}}
+</div>
+{{/if}}
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col"style="font-size:20px;">BriefID</th>
+      <th scope="col"style="font-size:20px;">ReqID</th>
+      <th scope="col"style="font-size:20px;">Name</th>
+      <th scope="col"style="font-size:20px;">Email</th>
+      <th scope="col"style="font-size:20px;">Phone</th>
+      <th scope="col"style="font-size:20px;">CVFile</th>
+      <th scope="col"style="font-size:20px;">SubmitDate</th>
+      <th scope="col"style="font-size:20px;">Status</th>
+      <th scope="col"style="font-size:20px;">Hành động</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each query}}
+    <tr>
+      <th scope="row" style="font-size:20px;">{{this.BriefID}}</th>
+      <td style="font-size:20px;">{{this.ReqID}}</td>
+      <td style="font-size:20px;">{{this.Name}}</td>
+      <td style="font-size:20px;">{{this.Email}}</td>
+      <td style="font-size:20px;">{{this.Phone}}</td>
+      <td style="font-size:20px;">
+        <a href="/read/{{this.CVFile}}" style="font-size:20px;">{{this.CVFile}}</a>
+        {{!-- {{this.CVFile}} --}}
+      </td>
+       <td style="font-size:20px;">{{this.SubmitDate}}</td>
+       <td style="font-size:20px;">{{this.Status}}</td>
+      <td style="font-size:20px;">
+        {{#compare this.Status "Checked" operator="!="}}
+          <a href="/addcandidate/{{this.BriefID}}" type="button" class="btn btn-light btn small"><i class="fas fa-plus" style="font-size:20px;"></i> Xét duyệt</a>  
+          <a href="/deletecandidate/{{this.BriefID}}" type="button" class="btn btn-light btn small"><i class="fas fa-trash-alt" style="font-size:20px;"></i> Xóa</a>
+        {{/compare}} 
+        {{#compare this.Status "Checked" operator="==="}}
+          {{!-- <a href="/deletecandidate/{{this.BriefID}}" type="button" class="btn btn-light btn small"><i class="fas fa-trash-alt" style="font-size:20px;"></i> Xóa</a> --}}
+        {{/compare}}
+        <style>
+          .fa-edit{
+            color : black;
+          }
+          .fa-trash-alt{
+            color : black;
+          }
+        </style>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

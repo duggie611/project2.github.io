@@ -1,0 +1,42 @@
+{{#if message}}
+  <div class="alert alert-{{message.type}}" role="alert">
+    {{message.message}}
+</div>
+{{/if}}
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col"style="font-size:20px;">AccountID</th>
+      <th scope="col"style="font-size:20px;">EmpID</th>
+      <th scope="col"style="font-size:20px;">Tên nhân viên</th>
+      <th scope="col"style="font-size:20px;">Tên phòng ban</th>      
+      <th scope="col"style="font-size:20px;">Tên tài khoản</th>
+      <th scope="col"style="font-size:20px;">Mật khẩu</th>
+      <th scope="col"style="font-size:20px;">Hành động</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each query}}
+    <tr>
+      <th scope="row" style="font-size:20px;">{{this.AccountID}}</th>
+      <td style="font-size:20px;">{{this.EmpID}}</td>
+      <td style="font-size:20px;">{{this.Name}}</td>
+      <td style="font-size:20px;">{{this.DepartName}}</td>
+      <td style="font-size:20px;">{{this.Account}}</td>
+      <td style="font-size:20px;">{{this.Password}}</td>
+      <td style="font-size:20px;">
+          <a href="edituser/{{this.Account}}" type="button" class="btn btn-light btn small"><i class="fas fa-edit" style="font-size:20px;"></i> Sửa</a>
+          <a href="deleteuser/{{this.Account}}" type="button" class="btn btn-light btn small"><i class="fas fa-trash-alt" style="font-size:20px;"></i> Xóa</a>
+        <style>
+          .fa-edit{
+            color : black;
+          }
+          .fa-trash-alt{
+            color : black;
+          }
+        </style>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

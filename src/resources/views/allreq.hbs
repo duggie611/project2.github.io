@@ -1,0 +1,44 @@
+{{#if message}}
+  <div class="alert alert-{{message.type}}" role="alert">
+    {{message.message}}
+</div>
+{{/if}}
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col"style="font-size:20px;">ReqID</th>
+      <th scope="col"style="font-size:20px;">ReqName</th>
+      <th scope="col"style="font-size:20px;">Lương</th>
+      <th scope="col"style="font-size:20px;">Tên phòng ban</th>
+      <th scope="col"style="font-size:20px;">Ngày bắt đầu</th>
+      <th scope="col"style="font-size:20px;">Ngày kết thúc</th>
+      <th scope="col"style="font-size:20px;">Loại công việc</th>
+      <th scope="col"style="font-size:20px;">Hành động</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each query}}
+    <tr>
+      <th scope="row" style="font-size:20px;">{{this.ReqID}}</th>
+      <td style="font-size:20px;">{{this.ReqName}}</td>
+      <td style="font-size:20px;">{{this.Salary}}</td>
+      <td style="font-size:20px;">{{this.DepartName}}</td>
+      <td style="font-size:20px;">{{this.StartDate}}</td>
+      <td style="font-size:20px;">{{this.Deadline}}</td>
+      <td style="font-size:20px;">{{this.JobType}}</td>
+      <td style="font-size:20px;">
+          <a href="editreq/{{this.ReqID}}" type="button" class="btn btn-light btn small"><i class="fas fa-edit" style="font-size:20px;"></i> Sửa</a>
+          <a href="deletereq/{{this.ReqID}}" type="button" class="btn btn-light btn small"><i class="fas fa-trash-alt" style="font-size:20px;"></i> Xóa</a>
+        <style>
+          .fa-edit{
+            color : black;
+          }
+          .fa-trash-alt{
+            color : black;
+          }
+        </style>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

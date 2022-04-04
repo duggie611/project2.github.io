@@ -1,0 +1,82 @@
+{{#if message}}
+  <div class="alert alert-{{message.type}}" role="alert">
+    {{message.message}}
+</div>
+{{/if}}
+<script>
+      tinymce.init({
+        selector: '#mytextarea'
+      });
+</script>
+<form class="mt-4" method="POST" >
+  <div class="row mb-3">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Tên yêu cầu</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputAccount3" name="reqname" placeholder="Tên yêu cầu  " required>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label for="inputPassword3" class="col-sm-2 col-form-label">Mức lương</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputPassword3" name="salary" placeholder="Mức lương" required>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label for="inputDepart" class="col-sm-2 col-form-label">Tên phòng ban</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputDepart" name="departname" placeholder="Tên phòng ban" required>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label for="inputDate" class="col-sm-2 col-form-label">Ngày bắt đầu nhận hồ sơ</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputdate" name="startdate" placeholder="" onfocus="(this.type='date')" required>
+    </div>
+  </div>
+   <div class="row mb-3">
+    <label for="inputDate" class="col-sm-2 col-form-label">Hạn cuối nhận hồ sơ</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputdate" name="deadline" placeholder="" onfocus="(this.type='date')" required>
+    </div>
+  </div>
+   <div class="row mb-3">
+        <label for="jobtype-input" class="col-sm-2 col-form-label">Loại công việc</label>
+        <div class="col-sm-10">
+        <select class="form-control" id="jobtype" name="jobtype">
+            <option value="">--Chọn loại công việc--</option>
+            <option value="Full-time">Full-time</option>
+            <option value="Part-time">Part-time</option>
+            <option value="Thực tập sinh">Thực tập sinh</option>
+        </select>
+        </div>
+    </div>
+  <div class="row mb-3">
+        <label for="inputjobdetail" class="col-sm-2 col-form-label">Mô tả công việc</label>
+        <div class="col-sm-10">
+          <textarea id="mytextarea" name="jobdetail">Hello, World!</textarea>
+        </div>
+  </div>
+  {{!-- <div class="row mb-3">
+        <label for="statustype-input" class="col-sm-2 col-form-label">Trạng thái yêu cầu tuyển dụng</label>
+        <div class="col-sm-10">
+        <select class="form-control" id="statustype" name="statustype">
+            <option value="">--Chọn trạng thái--</option>
+            <option value="Đang nhận hồ sơ">Đang nhận hồ sơ</option>
+            <option value="Chuẩn bị nhận hồ sơ">Chuẩn bị nhận hồ sơ</option>
+            <option value="Hết hạn nộp hồ sơ">Hết hạn nộp hồ sơ</option>
+        </select>
+        </div>
+    </div> --}}
+  <button type="submit" class="btn btn-primary" id="submit">Tạo yêu cầu tuyển dụng</button>
+</form>
+<script>
+      $('#submit').on('click', function(){
+              var date = new Date($('#inputdate').val());
+              var day = $('#inputdate').getDate();
+              var month = $('#inputdate').getMonth() + 1;
+              var year = $('#inputdate').getFullYear();
+              var realdate = null;
+              realdate = day +"/" + month +"/" + year;
+              return realdate;
+            });
+</script>

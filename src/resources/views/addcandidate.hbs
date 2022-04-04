@@ -1,0 +1,83 @@
+{{#if query}}
+<form class="mt-4" method="POST" >
+<div class="row mb-3">
+  <label for="inputEmail3" class="col-sm-2 col-form-label">Mã hồ sơ</label>
+    <div class="col-sm-10">
+      <input class="form-control" type="text" value="{{#each query}}{{this.BriefID}}{{/each}}" name="briefid" aria-label="readonly input example" readonly>
+    </div>
+</div>
+<div class="row mb-3">
+  <label for="inputEmail3" class="col-sm-2 col-form-label">Mã yêu cầu</label>
+    <div class="col-sm-10">
+      <input class="form-control" type="text" value="{{#each query}}{{this.ReqID}}{{/each}}" name="reqid" aria-label="readonly input example" readonly>
+    </div>
+</div>
+<div class="row mb-3">
+  <label for="inputEmail3" class="col-sm-2 col-form-label">Họ & tên</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputAccount3" name="name" placeholder="Họ và tên"  value="{{#each query}}{{this.Name}}{{/each}}" required>
+    </div>
+</div>
+<div class="row mb-3">
+  <label for="inputPassword3" class="col-sm-2 col-form-label">Địa chỉ email</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputPassword3" name="email" placeholder="Địa chỉ email" value="{{#each query}}{{this.Email}}{{/each}}" required>
+    </div>
+</div>
+<div class="row mb-3">
+	<label for="inputPassword3" class="col-sm-2 col-form-label">Số điện thoại</label>
+  	<div class="col-sm-10">
+			<input type="text" class="form-control" id="inputPassword3" name="phone" placeholder="Số điện thoại" value="{{#each query}}{{this.Phone}}{{/each}}" required>
+		</div>
+</div>
+<div class="row mb-3">
+	<label for="inputPassword3" class="col-sm-2 col-form-label">Kinh nghiệm</label>
+  	<div class="col-sm-10">
+			<textarea class="form-control" id="inputPassword3" name="experience" placeholder="Kinh nghiệm"></textarea>
+		</div>
+</div>
+<div class="row mb-3">
+	<label for="inputPassword3" class="col-sm-2 col-form-label">Ngoại ngữ</label>
+  	<div class="col-sm-10">
+			<textarea class="form-control" id="inputPassword3" name="language" placeholder="Ngoại ngữ"></textarea>
+		</div>
+</div>
+<div class="row mb-3">
+	<label for="inputPassword3" class="col-sm-2 col-form-label">Trình độ tin học</label>
+  	<div class="col-sm-10">
+			<textarea class="form-control" id="inputPassword3" name="itskill" placeholder="Trình độ tin học"></textarea>
+		</div>
+</div>
+<div class="row mb-3">
+	<label for="inputPassword3" class="col-sm-2 col-form-label">Trình độ học vấn</label>
+  	<div class="col-sm-10">
+			<textarea class="form-control" id="inputPassword3" name="academic" placeholder="Trình độ học vấn"></textarea>
+		</div>
+</div>
+<div class="row mb-3">
+	<label for="inputPassword3" class="col-sm-2 col-form-label">File CV</label>
+  	<div class="col-sm-10">
+			<a href="/read/{{#each query}}{{this.CVFile}}{{/each}}" readonly class="form-control-plaintext" style="font-size:20px;" value="{{#each query}}{{this.CVFile}}{{/each}}">{{#each query}}{{this.CVFile}}{{/each}}</a>
+		</div>
+</div>
+<div class="row mb-3">
+  <label for="inputEmail3" class="col-sm-2 col-form-label">Thời điểm nộp hồ sơ</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputAccount3" name="submitdate" value="{{#each query}}{{this.SubmitDate}}{{/each}}" aria-label="readonly input example" readonly>
+    </div>
+</div>
+<div class="row mb-3">
+  <label for="statustype-input" class="col-sm-2 col-form-label">Trạng thái hồ sơ</label>
+    <div class="col-sm-10">
+    <select class="form-control" id="statustype" name="statustype">
+      <option value="">--Chọn trạng thái--</option>
+      <option value="Tiềm năng">Tiềm năng</option>
+      <option value="Chuẩn bị phỏng vấn">Chuẩn bị phỏng vấn</option>
+    </select>
+  </div>
+</div>
+<input type="hidden" name="approver" value="{{#each data}}{{this.Name}}{{/each}}" />
+<input type="hidden" id="date" name="approveddate" value="" />
+<button type="submit" class="btn btn-primary" onclick="document.getElementById('date').value = new Date().toLocaleString('en-GB')" id="submit">Lưu hồ sơ</button>
+</form>
+{{/if}}

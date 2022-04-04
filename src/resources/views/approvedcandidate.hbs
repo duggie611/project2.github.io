@@ -1,0 +1,231 @@
+{{#if message}}
+  <div class="alert alert-{{message.type}}" role="alert">
+    {{message.message}}
+</div>
+{{/if}}
+<div class ="table-responsive">
+<table class="table table-md">
+  <thead>
+    {{#each data as |user| }}
+    {{#compare user.EmpID 1001 operator=">="}}
+    {{#compare user.EmpID 1099 operator="<="}}
+    <tr>
+      <th scope="col"style="font-size:20px;">BriefID</th>
+      <th scope="col"style="font-size:20px;">ReqID</th>
+      <th scope="col"style="font-size:20px;">Name</th>
+      <th scope="col"style="font-size:20px;">Email</th>
+      <th scope="col"style="font-size:20px;">Phone</th>
+      <th scope="col"style="font-size:20px;">CVFile</th>
+      <th scope="col"style="font-size:20px;">Trạng thái</th>
+      <th scope="col"style="font-size:20px;">SubmitDate</th>
+      <th scope="col"style="font-size:20px;">Approver</th>
+      <th scope="col"style="font-size:20px;">ApprovedDate</th>
+      <th scope="col"style="font-size:20px;">Interviewer</th>
+      <th scope="col"style="font-size:20px;">InterviewedDate</th>
+      <th scope="col"style="font-size:20px;">Hành động</th>
+    </tr>
+    {{/compare}}
+    {{/compare}}
+
+    {{#compare user.EmpID 1100 operator=">="}}
+    {{#compare user.EmpID 1199 operator="<="}}
+    <tr>
+      <th scope="col"style="font-size:20px;">BriefID</th>
+      <th scope="col"style="font-size:20px;">ReqID</th>
+      <th scope="col"style="font-size:20px;">Name</th>
+      <th scope="col"style="font-size:20px;">Email</th>
+      <th scope="col"style="font-size:20px;">Phone</th>
+      <th scope="col"style="font-size:20px;">CVFile</th>
+      <th scope="col"style="font-size:20px;">Trạng thái</th>
+      <th scope="col"style="font-size:20px;">SubmitDate</th>
+      <th scope="col"style="font-size:20px;">Approver</th>
+      <th scope="col"style="font-size:20px;">ApprovedDate</th>
+      <th scope="col"style="font-size:20px;">Hành động</th>
+    </tr>
+    {{/compare}}
+    {{/compare}}
+
+    {{#compare user.EmpID 1200 operator=">="}}
+    {{#compare user.EmpID 1299 operator="<="}}
+    <tr>
+      <th scope="col"style="font-size:20px;">BriefID</th>
+      <th scope="col"style="font-size:20px;">ReqID</th>
+      <th scope="col"style="font-size:20px;">Name</th>
+      <th scope="col"style="font-size:20px;">Email</th>
+      <th scope="col"style="font-size:20px;">Phone</th>
+      <th scope="col"style="font-size:20px;">CVFile</th>
+      <th scope="col"style="font-size:20px;">Trạng thái</th>
+      <th scope="col"style="font-size:20px;">SubmitDate</th>
+      <th scope="col"style="font-size:20px;">Approver</th>
+      <th scope="col"style="font-size:20px;">ApprovedDate</th>
+      <th scope="col"style="font-size:20px;">Hành động</th>
+    </tr>
+    {{/compare}}
+    {{/compare}}
+
+    {{#compare user.EmpID 1300 operator=">="}}
+    <tr>
+      <th scope="col"style="font-size:20px;">BriefID</th>
+      <th scope="col"style="font-size:20px;">ReqID</th>
+      <th scope="col"style="font-size:20px;">Name</th>
+      <th scope="col"style="font-size:20px;">Email</th>
+      <th scope="col"style="font-size:20px;">Phone</th>
+      <th scope="col"style="font-size:20px;">CVFile</th>
+      <th scope="col"style="font-size:20px;">Trạng thái</th>
+      <th scope="col"style="font-size:20px;">SubmitDate</th>
+      <th scope="col"style="font-size:20px;">Approver</th>
+      <th scope="col"style="font-size:20px;">ApprovedDate</th>
+      <th scope="col"style="font-size:20px;">Interviewer</th>
+      <th scope="col"style="font-size:20px;">InterviewedDate</th>
+      <th scope="col"style="font-size:20px;">Note</th>
+      <th scope="col"style="font-size:20px;">Hành động</th>
+    </tr>
+    {{/compare}}
+    {{/each}}
+  </thead>
+
+  <tbody>
+    {{#each data as |user| }}
+    {{#each ../query}}
+    <tr>
+      {{!-- <th scope="row" style="font-size:20px;">{{this.BriefID}}</th>
+      <td style="font-size:20px;">{{this.ReqID}}</td>
+      <td style="font-size:20px;">{{this.Name}}</td>
+      <td style="font-size:20px;">{{this.Email}}</td>
+      <td style="font-size:20px;">{{this.Phone}}</td>
+      <td style="font-size:20px;">
+        <a href="/read/{{this.CVFile}}" style="font-size:20px;">{{this.CVFile}}</a>
+      </td>
+      <td style="font-size:20px;">{{this.Status}}</td>
+      <td style="font-size:20px;">{{this.SubmitDate}}</td>
+      <td style="font-size:20px;">{{this.Approver}}</td>
+      <td style="font-size:20px;">{{this.ApprovedDate}}</td> --}}
+      {{!-- Admin --}}
+      {{#compare user.EmpID 1001 operator=">="}}
+      {{#compare user.EmpID 1099 operator="<="}}
+      <th scope="row" style="font-size:20px;">{{this.BriefID}}</th>
+      <td style="font-size:20px;">{{this.ReqID}}</td>
+      <td style="font-size:20px;">{{this.Name}}</td>
+      <td style="font-size:20px;">{{this.Email}}</td>
+      <td style="font-size:20px;">{{this.Phone}}</td>
+      <td style="font-size:20px;">
+        <a href="/read/{{this.CVFile}}" style="font-size:20px;">{{this.CVFile}}</a>
+      </td>
+      <td style="font-size:20px;">{{this.Status}}</td>
+      <td style="font-size:20px;">{{this.SubmitDate}}</td>
+      <td style="font-size:20px;">{{this.Approver}}</td>
+      <td style="font-size:20px;">{{this.ApprovedDate}}</td>
+      <td style="font-size:20px;">{{this.Interviewer}}</td>
+      <td style="font-size:20px;">{{this.InterviewedDate}}</td>
+      <td style="font-size:20px;">
+          <a href="/viewcandidate/{{this.BriefID}}" type="button" class="btn btn-light btn small"><i class="fas fa-eye"></i> Xem</a>
+          <a href="/editcandidate/{{this.BriefID}}" type="button" class="btn btn-light btn small"><i class="fas fa-plus" style="font-size:20px;"></i> Chỉnh sửa</a>
+          <a href="/delapprovedcandidate/{{this.BriefID}}" type="button" class="btn btn-light btn small"><i class="fas fa-trash-alt" style="font-size:20px;"></i> Xóa</a>
+        <style>
+          .fa-edit{
+            color : black;
+          }
+          .fa-trash-alt{
+            color : black;
+          }
+        </style>
+      </td>
+      {{/compare}}
+      {{/compare}}
+      {{!-- Nhan vien xet duyet --}}
+      {{#compare user.EmpID 1100 operator=">="}}
+      {{#compare user.EmpID 1199 operator="<="}}
+      <th scope="row" style="font-size:20px;">{{this.BriefID}}</th>
+      <td style="font-size:20px;">{{this.ReqID}}</td>
+      <td style="font-size:20px;">{{this.Name}}</td>
+      <td style="font-size:20px;">{{this.Email}}</td>
+      <td style="font-size:20px;">{{this.Phone}}</td>
+      <td style="font-size:20px;">
+        <a href="/read/{{this.CVFile}}" style="font-size:20px;">{{this.CVFile}}</a>
+      </td>
+      <td style="font-size:20px;">{{this.Status}}</td>
+      <td style="font-size:20px;">{{this.SubmitDate}}</td>
+      <td style="font-size:20px;">{{this.Approver}}</td>
+      <td style="font-size:20px;">{{this.ApprovedDate}}</td>
+      <td style="font-size:20px;">
+          <a href="/viewcandidate/{{this.BriefID}}" type="button" class="btn btn-light btn small"><i class="fas fa-eye"></i> Xem</a>
+          <a href="/editcandidate/{{this.BriefID}}" type="button" class="btn btn-light btn small"><i class="fas fa-plus" style="font-size:20px;"></i> Chỉnh sửa</a>
+          <a href="/delapprovedcandidate/{{this.BriefID}}" type="button" class="btn btn-light btn small"><i class="fas fa-trash-alt" style="font-size:20px;"></i> Xóa</a>
+        <style>
+          .fa-edit{
+            color : black;
+          }
+          .fa-trash-alt{
+            color : black;
+          }
+        </style>
+      </td>
+      {{/compare}}
+      {{/compare}}
+      {{!-- Nhan vien phong van --}}
+      {{#compare user.EmpID 1200 operator=">="}}
+      {{#compare user.EmpID 1299 operator="<="}}
+      <th scope="row" style="font-size:20px;">{{this.BriefID}}</th>
+      <td style="font-size:20px;">{{this.ReqID}}</td>
+      <td style="font-size:20px;">{{this.Name}}</td>
+      <td style="font-size:20px;">{{this.Email}}</td>
+      <td style="font-size:20px;">{{this.Phone}}</td>
+      <td style="font-size:20px;">
+        <a href="/read/{{this.CVFile}}" style="font-size:20px;">{{this.CVFile}}</a>
+      </td>
+      <td style="font-size:20px;">{{this.Status}}</td>
+      <td style="font-size:20px;">{{this.SubmitDate}}</td>
+      <td style="font-size:20px;">{{this.Approver}}</td>
+      <td style="font-size:20px;">{{this.ApprovedDate}}</td>
+      <td style="font-size:20px;">
+          <a href="/viewcandidate/{{this.BriefID}}" type="button" class="btn btn-light btn small"><i class="fas fa-eye"></i> Xem</a>
+          <a href="/interview/{{this.BriefID}}" type="button" class="btn btn-light btn small"><i class="fas fa-plus" style="font-size:20px;"></i> Phỏng vấn</a>
+          <a href="/delapprovedcandidate/{{this.BriefID}}" type="button" class="btn btn-light btn small"><i class="fas fa-trash-alt" style="font-size:20px;"></i> Xóa</a>
+        <style>
+          .fa-edit{
+            color : black;
+          }
+          .fa-trash-alt{
+            color : black;
+          }
+        </style>
+      </td>
+      {{/compare}}
+      {{/compare}}
+
+      {{!-- Truong phong nhan su --}}
+      {{#compare user.EmpID 1300 operator=">="}}
+      <th scope="row" style="font-size:20px;">{{this.BriefID}}</th>
+      <td style="font-size:20px;">{{this.ReqID}}</td>
+      <td style="font-size:20px;">{{this.Name}}</td>
+      <td style="font-size:20px;">{{this.Email}}</td>
+      <td style="font-size:20px;">{{this.Phone}}</td>
+      <td style="font-size:20px;">
+        <a href="/read/{{this.CVFile}}" style="font-size:20px;">{{this.CVFile}}</a>
+      </td>
+      <td style="font-size:20px;">{{this.Status}}</td>
+      <td style="font-size:20px;">{{this.SubmitDate}}</td>
+      <td style="font-size:20px;">{{this.Approver}}</td>
+      <td style="font-size:20px;">{{this.ApprovedDate}}</td>
+      <td style="font-size:20px;">{{this.Interviewer}}</td>
+      <td style="font-size:20px;">{{this.InterviewedDate}}</td>
+       <td style="font-size:20px;">{{this.Note}}</td>
+      <td style="font-size:20px;">
+          <a href="/viewcandidate/{{this.BriefID}}" type="button" class="btn btn-light btn small"><i class="fas fa-eye"></i> Xem</a>
+          <a href="/delapprovedcandidate/{{this.BriefID}}" type="button" class="btn btn-light btn small"><i class="fas fa-trash-alt" style="font-size:20px;"></i> Xóa</a>
+        <style>
+          .fa-edit{
+            color : black;
+          }
+          .fa-trash-alt{
+            color : black;
+          }
+        </style>
+      </td>
+      {{/compare}}
+    </tr>
+    {{/each}}
+    {{/each}}
+  </tbody>
+</table>
+</div>

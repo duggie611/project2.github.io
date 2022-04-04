@@ -1,0 +1,25 @@
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col"style="font-size:20px;">JobType</th>
+      <th scope="col"style="font-size:20px;">Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each query}}
+    <tr>
+      <th scope="row" style="font-size:20px;">{{this.JobType}}</th>
+      <td style="font-size:20px;">{{this.briefcount}}</td>
+        <style>
+          .fa-edit{
+            color : black;
+          }
+          .fa-trash-alt{
+            color : black;
+          }
+        </style>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

@@ -1,0 +1,132 @@
+{{!-- {{#each data}}
+<h1 class='test'>Welcome {{this.Account}}</h1>
+{{/each}} --}}
+
+<div class="row">
+{{#each data as |user| }}
+{{!-- Nhan vien xet duyet --}}
+{{#compare user.EmpID 1101 operator=">="}}
+{{#compare user.EmpID 1199 operator="<="}}
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Số hồ sơ hiện tại</h5>
+    <p class="card-text">{{#each ../count1}}{{this.countbrief}}{{/each}}</p>
+  </div>
+</div>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Số hồ sơ đã xét duyệt</h5>
+    <p class="card-text">{{#each ../count3}}{{this.countapproved}}{{/each}}</p>
+  </div>
+</div>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Số yêu cầu tuyển dụng hiện tại</h5>
+    <p class="card-text">{{#each ../count2}}{{this.countreq}}{{/each}}</p>
+  </div>
+</div>
+{{/compare}}
+{{/compare}}
+
+{{!-- Nhan vien phong van --}}
+{{#compare user.EmpID 1200 operator=">="}}
+{{#compare user.EmpID 1299 operator="<="}}
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Số hồ sơ hiện tại</h5>
+    <p class="card-text">{{#each ../count1}}{{this.countbrief}}{{/each}}</p>
+  </div>
+</div>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Số ứng viên chờ phỏng vấn</h5>
+    <p class="card-text">{{#each ../count3}}{{this.countwaiting}}{{/each}}</p>
+  </div>
+</div>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Số yêu cầu tuyển dụng hiện tại</h5>
+    <p class="card-text">{{#each ../count2}}{{this.countreq}}{{/each}}</p>
+  </div>
+</div>
+{{/compare}}
+{{/compare}}
+{{!-- Truong phong nhan su --}}
+{{#compare user.EmpID 1300 operator=">="}}
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Số hồ sơ hiện tại</h5>
+    <p class="card-text">{{#each ../count1}}{{this.countbrief}}{{/each}}</p>
+  </div>
+</div>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Số ứng viên chờ phỏng vấn</h5>
+    <p class="card-text">{{#each ../count3}}{{this.countwaiting}}{{/each}}</p>
+  </div>
+</div>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Số yêu cầu tuyển dụng hiện tại</h5>
+    <p class="card-text">{{#each ../count2}}{{this.countreq}}{{/each}}</p>
+  </div>
+</div>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Số ứng viên đã trúng tuyển</h5>
+    <p class="card-text">{{#each ../count4}}{{this.countpassed}}{{/each}}</p>
+  </div>
+</div>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Số ứng viên chưa trúng tuyển</h5>
+    <p class="card-text">{{#each ../count5}}{{this.countnotpassed}}{{/each}}</p>
+  </div>
+</div>
+{{/compare}}
+{{!-- Admin --}}
+{{#compare user.EmpID 1001 operator=">="}}
+{{#compare user.EmpID 1099 operator="<="}}
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Số hồ sơ hiện tại</h5>
+    <p class="card-text">{{#each ../count1}}{{this.countbrief}}{{/each}}</p>
+  </div>
+</div>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Số ứng viên chờ phỏng vấn</h5>
+    <p class="card-text">{{#each ../count3}}{{this.countwaiting}}{{/each}}</p>
+  </div>
+</div>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Số yêu cầu tuyển dụng hiện tại</h5>
+    <p class="card-text">{{#each ../count2}}{{this.countreq}}{{/each}}</p>
+  </div>
+</div>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Số ứng viên đã trúng tuyển</h5>
+    <p class="card-text">{{#each ../count4}}{{this.countpassed}}{{/each}}</p>
+  </div>
+</div>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Số ứng viên chưa trúng tuyển</h5>
+    <p class="card-text">{{#each ../count5}}{{this.countnotpassed}}{{/each}}</p>
+  </div>
+</div>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Số tài khoản hiện tại</h5>
+    <p class="card-text">{{#each ../count6}}{{this.countacc}}{{/each}}</p>
+  </div>
+</div>
+{{/compare}}
+{{/compare}}
+{{/each}}
+</div>
+
+
+

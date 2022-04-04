@@ -1,0 +1,80 @@
+{{#if query}}
+<form class="mt-4">
+<div class="row mb-3">
+  <label for="inputEmail3" class="col-sm-2 col-form-label">Mã hồ sơ</label>
+    <div class="col-sm-10">
+      <input class="form-control" type="text" value="{{#each query}}{{this.BriefID}}{{/each}}" name="briefid" aria-label="readonly input example" readonly>
+    </div>
+</div>
+<div class="row mb-3">
+  <label for="inputEmail3" class="col-sm-2 col-form-label">Tên yêu cầu</label>
+    <div class="col-sm-10">
+      <input class="form-control" type="text" value="{{#each query}}{{this.ReqName}}{{/each}}" name="reqid" aria-label="readonly input example" readonly>
+    </div>
+</div>
+<div class="row mb-3">
+  <label for="inputEmail3" class="col-sm-2 col-form-label">Họ & tên</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputAccount3" name="name" placeholder="Họ và tên"  value="{{#each query}}{{this.Name}}{{/each}}" aria-label="readonly input example" readonly>
+    </div>
+</div>
+<div class="row mb-3">
+  <label for="inputPassword3" class="col-sm-2 col-form-label">Địa chỉ email</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputPassword3" name="email" placeholder="Địa chỉ email" value="{{#each query}}{{this.Email}}{{/each}}" aria-label="readonly input example" readonly>
+    </div>
+</div>
+<div class="row mb-3">
+	<label for="inputPassword3" class="col-sm-2 col-form-label">Số điện thoại</label>
+  	<div class="col-sm-10">
+			<input type="text" class="form-control" id="inputPassword3" name="phone" placeholder="Số điện thoại" value="{{#each query}}{{this.Phone}}{{/each}}" aria-label="readonly input example" readonly>
+		</div>
+</div>
+<div class="row mb-3">
+	<label for="inputPassword3" class="col-sm-2 col-form-label">Kinh nghiệm</label>
+  	<div class="col-sm-10">
+			<textarea class="form-control" id="inputPassword3" name="experience" placeholder="Kinh nghiệm" aria-label="readonly input example" readonly>{{#each query}}{{this.Experience}}{{/each}}</textarea>
+		</div>
+</div>
+<div class="row mb-3">
+	<label for="inputPassword3" class="col-sm-2 col-form-label">Ngoại ngữ</label>
+  	<div class="col-sm-10">
+			<textarea class="form-control" id="inputPassword3" name="language" placeholder="Ngoại ngữ" aria-label="readonly input example" readonly>{{#each query}}{{this.Language}}{{/each}}</textarea>
+		</div>
+</div>
+<div class="row mb-3">
+	<label for="inputPassword3" class="col-sm-2 col-form-label">Trình độ tin học</label>
+  	<div class="col-sm-10">
+			<textarea class="form-control" id="inputPassword3" name="itskill" placeholder="Trình độ tin học" aria-label="readonly input example" readonly>{{#each query}}{{this.ITSkill}}{{/each}}</textarea>
+		</div>
+</div>
+<div class="row mb-3">
+	<label for="inputPassword3" class="col-sm-2 col-form-label">Trình độ học vấn</label>
+  	<div class="col-sm-10">
+			<textarea class="form-control" id="inputPassword3" name="academic" placeholder="Trình độ học vấn" aria-label="readonly input example" readonly>{{#each query}}{{this.Academic}}{{/each}}</textarea>
+		</div>
+</div>
+<div class="row mb-3">
+	<label for="inputPassword3" class="col-sm-2 col-form-label">File CV</label>
+  	<div class="col-sm-10">
+			<a href="/read/{{#each query}}{{this.CVFile}}{{/each}}" readonly class="form-control-plaintext" style="font-size:20px;" value="{{#each query}}{{this.CVFile}}{{/each}}">{{#each query}}{{this.CVFile}}{{/each}}</a>
+		</div>
+</div>
+<div class="row mb-3">
+  <label for="statustype-input" class="col-sm-2 col-form-label">Trạng thái</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputAccount3" name="statustype" value="{{#each query}}{{this.Status}}{{/each}}" aria-label="readonly input example" readonly>
+  </div>
+</div>
+{{#each data}}
+{{#compare this.EmpID 1300 operator=">="}}
+<div class="row mb-3">
+  <label for="statustype-input" class="col-sm-2 col-form-label">Ghi chú</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputAccount3" name="statustype" value="{{#each ../query}}{{this.Note}}{{/each}}" aria-label="readonly input example" readonly>
+  </div>
+</div>
+{{/compare}}
+{{/each}}
+</form>
+{{/if}}

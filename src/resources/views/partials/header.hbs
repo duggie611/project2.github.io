@@ -1,0 +1,206 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Công ty ABC</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        {{#if data}}
+        {{!-- <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href='/home'>Home</a>
+        </li> --}}
+        {{#each data}}
+        {{#compare this.EmpID 1001 operator=">=" }}
+        {{#compare this.EmpID 1099 operator="<=" }}
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href='/dashboard'>Dashboard</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Người dùng
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/createacc">Tạo tài khoản</a></li>
+            <li><a class="dropdown-item" href="/editacc">Quản lý tài khoản</a></li>
+            <li><hr class="dropdown-divider"></li>
+            {{!-- <li><a class="dropdown-item" href="#">Something else here</a></li> --}}
+          </ul>
+        </li>
+         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Yêu cầu tuyển dụng
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/createreq">Đăng yêu cầu tuyển dụng</a></li>
+            <li><a class="dropdown-item" href="/allreq">Sửa/xóa yêu cầu tuyển dụng</a></li>
+            <li><hr class="dropdown-divider"></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Hồ sơ
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/allcandidate">Danh sách các hồ sơ</a></li>
+            <li><a class="dropdown-item" href="/approvedcandidate">Danh sách các hồ sơ đã xét duyệt</a></li>
+            <li><hr class="dropdown-divider"></li>
+          </ul>
+        </li> 
+         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{!-- {{#each data}}{{this.Account}}{{/each}} --}}
+            {{this.Account}}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="logout">Đăng xuất</a></li>
+          </ul>
+        </li> 
+        {{/compare}}
+        {{/compare}}
+
+        {{!-- Nhan vien xet duyet --}}
+        {{#compare this.EmpID 1100 operator=">=" }}
+        {{#compare this.EmpID 1199 operator="<=" }}
+         <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href='/dashboard'>Dashboard</a>
+        </li>
+         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Yêu cầu tuyển dụng
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/createreq">Đăng yêu cầu tuyển dụng</a></li>
+            <li><a class="dropdown-item" href="/allreq">Sửa/xóa yêu cầu tuyển dụng</a></li>
+            <li><hr class="dropdown-divider"></li>
+            {{!-- <li><a class="dropdown-item" href="#">Something else here</a></li> --}}
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Hồ sơ
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/allcandidate">Danh sách các hồ sơ</a></li>
+            <li><a class="dropdown-item" href="/approvedcandidate">Danh sách các hồ sơ đã xét duyệt</a></li>
+            <li><hr class="dropdown-divider"></li>
+            {{!-- <li><a class="dropdown-item" href="#">Something else here</a></li> --}}
+          </ul>
+        </li> 
+         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{this.Account}}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="logout">Đăng xuất</a></li>
+          </ul>
+        </li> 
+        {{/compare}}
+        {{/compare}}
+
+        {{!-- Nhan vien phong van --}}
+        {{#compare this.EmpID 1200 operator=">=" }}
+        {{#compare this.EmpID 1299 operator="<=" }}
+         <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href='/dashboard'>Dashboard</a>
+        </li>
+         <li class="nav-item dropdown" hidden >
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Yêu cầu tuyển dụng
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/createreq">Đăng yêu cầu tuyển dụng</a></li>
+            <li><a class="dropdown-item" href="/allreq">Sửa/xóa yêu cầu tuyển dụng</a></li>
+            <li><hr class="dropdown-divider"></li>
+            {{!-- <li><a class="dropdown-item" href="#">Something else here</a></li> --}}
+          </ul>
+        </li>
+        {{!-- <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href='/admin'>Dashboard</a>
+        </li> --}}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Hồ sơ
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {{!-- <li><a class="dropdown-item" href="/allcandidate">Danh sách các hồ sơ</a></li> --}}
+            <li><a class="dropdown-item" href="/approvedcandidate">Danh sách các ứng viên chờ phỏng vấn</a></li>
+            <li><hr class="dropdown-divider"></li>
+          </ul>
+        </li> 
+         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{this.Account}}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="logout">Đăng xuất</a></li>
+          </ul>
+        </li> 
+        {{/compare}}
+        {{/compare}}
+
+        {{!-- Truong phong --}}
+        {{#compare this.EmpID 1300 operator=">=" }}
+         <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href='/dashboard'>Dashboard</a>
+        </li>
+         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Yêu cầu tuyển dụng
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/createreq">Đăng yêu cầu tuyển dụng</a></li>
+            <li><a class="dropdown-item" href="/allreq">Sửa/xóa yêu cầu tuyển dụng</a></li>
+            <li><hr class="dropdown-divider"></li>
+            {{!-- <li><a class="dropdown-item" href="#">Something else here</a></li> --}}
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Hồ sơ
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/allcandidate">Danh sách các hồ sơ</a></li>
+            <li><a class="dropdown-item" href="/approvedcandidate">Danh sách các hồ sơ đã xét duyệt</a></li>
+            <li><a class="dropdown-item" href="/passedcandidate">Danh sách các ứng viên trúng tuyển</a></li>
+            <li><hr class="dropdown-divider"></li>
+          </ul>
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Thống kê
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/statistic1">Số hồ sơ ứng tuyển theo từng phòng ban</a></li>
+            <li><a class="dropdown-item" href="/statistic2">Số hồ sơ ứng tuyển theo từng công việc</a></li>
+            <li><a class="dropdown-item" href="/statistic3">Số hồ sơ ứng tuyển theo từng loại công việc</a></li>
+            <li><hr class="dropdown-divider"></li>
+          </ul>
+        </li> 
+        </li> 
+         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{this.Account}}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="logout">Đăng xuất</a></li>
+          </ul>
+        </li> 
+        {{/compare}}
+        {{/each}}
+
+        {{else}}
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href='/login'>Đăng nhập</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href='/showhiring'>Thông tin tuyển dụng</a>
+        </li>
+        {{/if}}
+      </ul>
+      {{!-- <form class="d-flex" method="get" action="/showhiring/process/">
+        <input class="form-control me-2" type="search" placeholder="Search" name="titlesearch" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form> --}}
+    </div>
+  </div>
+</nav>
